@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int reverse(int number){
+	if (number >= 0 && number < 10){
+		return number;
+	}
+	int rem, rev = 0;
+	while (number > 0){
+		rem = number % 10;
+		rev = rem + rev * 10;
+		number = number / 10;
+	}
+	return rev;
+}
+
+int main(void) {
+	// your code here
+	int cases;
+	scanf("%d", &cases);
+	while (cases--){
+		int num1, num2;
+		scanf("%d%d", &num1, &num2);
+		num1 = reverse(num1);
+		num2 = reverse(num2);
+		printf("%d\n", reverse(num1 + num2));
+	}
+	return 0;
+}
