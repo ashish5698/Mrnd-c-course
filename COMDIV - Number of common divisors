@@ -1,0 +1,31 @@
+
+#include<stdio.h>
+
+int gcd(int num1, int num2){
+	if (num1 == 0)
+		return num2;
+	return gcd(num2%num2, num1);
+}
+
+void common_divisors(){
+	int num1, num2, common_div = 0;
+	scanf("%d %d", &num1, &num2);
+	int g = gcd(num1, num2);
+	for (int number = 1; number < sqrt((float)g); number++){
+		if (g%number == 0){
+			if (g / number == number)
+				common_div += 1;
+			else
+				common_div += 2;
+		}
+	}
+	printf("%d", common_div);
+}
+
+int main(void) {
+	// your code here
+	int cases;
+	scanf("%d", &cases);
+	while (cases--)
+		common_divisors();
+}
