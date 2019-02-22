@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include<malloc.h>
+
+void truth(){
+	int no;
+	scanf("%d", &no);
+	int *nums = (int*)malloc(sizeof(int)*no);
+	for (int idx = 0; idx < no; idx++){
+		scanf("%d", &nums[idx]);
+	}
+	int truthness = nums[0];
+	for (int idx = 0; idx < no; idx++){
+		truthness = nums[idx] - truthness;
+	}
+	if (truthness == 0)
+		printf("YES\n");
+	else
+		printf("NO\n");
+}
+
+
+int main(void) {
+	// your code here
+	int cases;
+	scanf("%d", &cases);
+	while (cases--)
+		truth();
+}
